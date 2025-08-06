@@ -2,18 +2,77 @@
     "max_open_trades": 5,
     "stake_currency": "USDT",
     "stake_amount": 50,
+    "tradable_balance_ratio": 0.99,
+    "amend_last_stake_amount": false,
+    "last_stake_amount_min_ratio": 0.5,
+    "amount_reserve_percent": 0.05,
     "dry_run": true,
     "dry_run_wallet": 1000,
+    "process_only_new_candles": true,
+    "fiat_display_currency": "USD",
+    "cancel_open_orders_on_exit": true,
+    "unfilledtimeout": {
+        "buy": 10,
+        "sell": 10
+    },
+    "bid_strategy": {
+        "price_side": "bid",
+        "use_order_book": false,
+        "ask_last_balance": 0.0,
+        "order_book_top": 1,
+        "check_depth_of_market": {
+            "enabled": false,
+            "bids_to_ask_delta": 0
+        }
+    },
+    "ask_strategy": {
+        "price_side": "ask",
+        "use_order_book": false,
+        "order_book_min": 1,
+        "order_book_max": 1,
+        "use_sell_signal": true,
+        "sell_profit_only": false,
+        "ignore_roi_if_buy_signal": false
+    },
+    "order_types": {
+        "buy": "limit",
+        "sell": "limit",
+        "stoploss": "limit",
+        "stoploss_on_exchange": false
+    },
+    "order_time_in_force": {
+        "buy": "gtc",
+        "sell": "gtc"
+    },
     "exchange": {
         "name": "binance",
+        "sandbox": false,
         "key": "",
         "secret": "",
-        "ccxt_config": {"enableRateLimit": true},
+        "password": "",
+        "pair_whitelist": [],
+        "pair_blacklist": [
+            "BNB/.*",
+            "USDT/.*"
+        ],
+        "ccxt_config": {
+            "enableRateLimit": true,
+            "adjustForTimeDifference": true
+        },
         "ccxt_async_config": {
             "enableRateLimit": true,
             "timeout": 30000
-        }
+        },
+        "markets_refresh_interval": 60
     },
+    "edge": {
+        "enabled": false
+    },
+    "pairlists": [
+        {
+            "method": "StaticPairList"
+        }
+    ],
     "freqai": {
         "enabled": true,
         "purge_old_models": 2,
@@ -25,24 +84,59 @@
             "include_corr_pairlist": ["BTC/USDT", "ETH/USDT"],
             "label_period_candles": 24,
             "include_shifted_candles": 2,
-            "indicator_periods_candles": [10, 20]
+            "indicator_periods_candles": [10, 20],
+            "principal_component_analysis": false,
+            "use_SVM_to_remove_outliers": true,
+            "stratify_training_data": 0
         },
         "data_split_parameters": {
             "test_size": 0.25,
-            "random_state": 42
+            "random_state": 42,
+            "shuffle": false
+        },
+        "model_training_parameters": {
+            "n_estimators": 100,
+            "random_state": 42,
+            "learning_rate": 0.02,
+            "n_jobs": -1,
+            "task_type": "CPU"
         }
     },
     "telegram": {
         "enabled": true,
         "token": "8282802034:AAEVU9L6o0pOjy4lRwQ-wLiJWlekmc-LdL4",
-        "chat_id": "887028634"
+        "chat_id": "887028634",
+        "notification_settings": {
+            "status": "on",
+            "warning": "on",
+            "startup": "on",
+            "buy": "on",
+            "sell": "on",
+            "buy_cancel": "on",
+            "sell_cancel": "on"
+        }
     },
     "api_server": {
         "enabled": true,
         "listen_ip_address": "0.0.0.0",
         "listen_port": 8080,
         "username": "freqtrader",
-        "password": "yoursecurepassword"
-    }
+        "password": "yoursecurepassword",
+        "jwt_secret_key": "your_very_strong_jwt_secret_here",
+        "CORS_origins": [],
+        "timeout": 300,
+        "verbosity": "error"
+    },
+    "dataformat_ohlcv": "json",
+    "dataformat_trades": "jsongz",
+    "internals": {
+        "process_throttle_secs": 5,
+        "heartbeat_interval": 60,
+        "sd_notify": false
+    },
+    "logfile": "user_data/logs/freqtrade.log",
+    "initial_state": "stopped",
+    "forcebuy_enable": false,
+    "strategy": "RiccardoProMaxUltraAI",
+    "strategy_path": "user_data/strategies"
 }
-
