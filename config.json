@@ -34,8 +34,8 @@
     },
     "telegram": {
         "enabled": true,
-        "token": "your_telegram_bot_token",
-        "chat_id": "your_chat_id"
+        "token": "8282802034:AAEVU9L6o0pOjy4lRwQ-wLiJWlekmc-LdL4",
+        "chat_id": "887028634"
     },
     "api_server": {
         "enabled": true,
@@ -45,3 +45,4 @@
         "password": "yoursecurepassword"
     }
 }
+
