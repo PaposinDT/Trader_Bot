@@ -104,8 +104,8 @@
     },
     "telegram": {
         "enabled": true,
-        "token": "8282802034:AAEVU9L6o0pOjy4lRwQ-wLiJWlekmc-LdL4",
-        "chat_id": "887028634",
+        "token": "TOKEN",
+        "chat_id": "CHAT_ID",
         "notification_settings": {
             "status": "on",
             "warning": "on",
@@ -140,3 +140,4 @@
     "strategy": "RiccardoProMaxUltraAI",
     "strategy_path": "user_data/strategies"
 }
+
