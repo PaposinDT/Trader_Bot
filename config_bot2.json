@@ -54,7 +54,7 @@
   "api_server": {
   "enabled": true,
   "listen_ip_address": "0.0.0.0",
-  "listen_port": 8080,
+  "listen_port": 8081,
   "username": "admin",
   "password": "admin",
   "jwt_secret_key": "4ca5651659afd0f13ebb81f2c8f166337de3c007ad68a519ee42a637b23f2e3a",
@@ -62,8 +62,8 @@
 },
   "strategy": "UltimateHybridStrategyPro",
   "strategy_path": "./user_data/strategies",
-  "db_url": "sqlite:///user_data/dryrun_sqlite.db",
-  "logfile": "user_data/logs/freqtrade.log",
+  "db_url": "sqlite:///user_data/dryrun_sqlite_bot2.db",
+  "logfile": "user_data/logs/freqtrade_bot2.log",
   "initial_state": "running",
   "force_entry_enable": false,
   "internals": {
