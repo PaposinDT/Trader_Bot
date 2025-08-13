@@ -175,7 +175,7 @@ def supertrend(df: pd.DataFrame, period: int = 10, multiplier: float = 3.0) -> T
     return supertrend, direction
 
 
-class UltimateHybridStrategyPro(IStrategy):
+class UltimateHybridStrategyPro5m(IStrategy):
     INTERFACE_VERSION = 3
     timeframe = '5m'
     can_short = False
